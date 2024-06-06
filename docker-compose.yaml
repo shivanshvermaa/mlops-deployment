@@ -1,0 +1,16 @@
+version: '1.0'
+
+services:
+  mlops_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mlops-prod
+    container_name: mlops-prod-container
+    ports:
+      - "80:80"  # Maps port 80 on the host to port 80 in the container
+    env_file:
+    - .env
+    volumes:
+      - ./app:/app  # Adjust volume mapping as needed
+    command: uvicorn main:app --host 0.0.0.0 --port 80  # Command to run the FastAPI app
