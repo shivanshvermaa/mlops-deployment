@@ -1,2 +1,4 @@
 .env
 .DS_STORE
+app/logs/
+fastapi-logs

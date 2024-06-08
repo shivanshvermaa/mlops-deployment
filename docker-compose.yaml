@@ -1,6 +1,7 @@
-version: '1.0'
+version: '2.0'
 
 services:
+  
   mlops_service:
     build:
       context: .
@@ -11,6 +12,35 @@ services:
       - "80:80"  # Maps port 80 on the host to port 80 in the container
     env_file:
     - .env
+    depends_on:
+      - elasticsearch
     volumes:
       - ./app:/app  # Adjust volume mapping as needed
+      - ./fastapi-logs:/app/logs
     command: uvicorn main:app --host 0.0.0.0 --port 80  # Command to run the FastAPI app
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.15.0
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+  filebeat:
+    build:
+        context: ./filebeat
+    container_name: filebeat
+    volumes:
+        - ./fastapi-logs:/app/logs
+    depends_on:
+        - elasticsearch
+        - kibana
+    
+
