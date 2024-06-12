@@ -1,7 +1,6 @@
 version: '2.0'
 
 services:
-  
   mlops_service:
     build:
       context: .
