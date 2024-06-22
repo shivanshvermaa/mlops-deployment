@@ -50,3 +50,21 @@ def get_feature_importance():
     booster = loaded_model.get_booster()
     feature_importance = booster.get_score(importance_type='gain')
     return feature_importance
+
+def get_batch_predictions(batch_df : pd.DataFrame):
+
+    predictions = []
+
+    for index, row in batch_df.iterrows():
+        prediction = get_model_prediction(
+            distance_from_home=row['distance_from_home'],
+            distance_from_last_transaction=row['distance_from_last_transaction'],
+            ratio_to_median_purchase_price=row['ratio_to_median_purchase_price'],
+            repeat_retailer=row['repeat_retailer'],
+            used_chip=row['used_chip'],
+            used_pin_number=row['used_pin_number'],
+            online_order=row['online_order']
+        )
+        predictions.append(prediction)
+
+    return predictions

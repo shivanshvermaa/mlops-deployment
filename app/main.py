@@ -4,11 +4,13 @@ import time
 from fastapi import FastAPI
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from typing import List, Dict, Any
 load_dotenv()
+import pandas as pd
 import logging
 
 
-from model.model import get_model_prediction , __model_version__ , get_feature_importance
+from model.model import get_model_prediction , __model_version__ , get_feature_importance , get_batch_predictions
 from logging_setup import loggerSetup
 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
@@ -33,6 +35,13 @@ class PredictionOut(BaseModel):
 
 class FeatureImportance(BaseModel):
     featureImportance: dict
+
+class TransactionInBatch(BaseModel):
+    instances: List[TransactionIn]
+
+class PredictionOutBatch(BaseModel):
+    isFraudulentBatch: List[PredictionOut]
+
 
 # LOGGING SETUP
 logger_setup = loggerSetup()
@@ -105,6 +114,28 @@ def init_app():
         log.info(f"Feature Importance RESPONED AT : {nowutc} WITH {featureImportance} FOR REQUEST RECIEVED AT : {nowutc}")
 
         return {"featureImportance" : featureImportance}
+
+
+    @app.post("/isFraudulentBatch",response_model=PredictionOutBatch)
+    def predictBatch(payload : TransactionInBatch):
+        nowutc = time.strftime("%Y-%m-%d %H:%M:%SZ", time.gmtime())
+        log.info(f"BATCH PREDICTION REQUEST RECIEVED AT : {nowutc} WITH PAYLOAD {payload}")
+
+        #Create a list of dictionaries from instances in payload
+        instances_dict_list = [instance.dict() for instance in payload.instances]
+
+        #Create DataFrame from list of dictionaries
+        batch_df = pd.DataFrame(instances_dict_list)
+
+        batch_predictions = get_batch_predictions(batch_df=batch_df)
+
+        nowresponse = time.strftime("%Y-%m-%d %H:%M:%SZ", time.gmtime())
+
+        log.info(f"BATCH PREDICTION RESPONDED AT : {nowresponse} FOR REQUEST RECEIVED AT : {nowutc} WITH RESPONSE {batch_predictions}")
+
+        predictions_out = [PredictionOut(isFraudulent=prediction) for prediction in batch_predictions]
+        return PredictionOutBatch(isFraudulentBatch=predictions_out)
+
 
     # from controllers import home
 
