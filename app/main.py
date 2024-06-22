@@ -10,7 +10,7 @@ import pandas as pd
 import logging
 
 
-from model.model import get_model_prediction , __model_version__ , get_feature_importance , get_batch_predictions
+from model.model import get_model_prediction , __model_version__ , get_feature_importance , get_batch_predictions, get_prediction_and_explanation
 from logging_setup import loggerSetup
 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
@@ -32,6 +32,10 @@ class TransactionIn(BaseModel):
 
 class PredictionOut(BaseModel):
     isFraudulent: bool
+
+class PredictionOutExplanation(BaseModel):
+    isFraudulent: bool
+    explanation: dict
 
 class FeatureImportance(BaseModel):
     featureImportance: dict
@@ -103,6 +107,36 @@ def init_app():
         log.info(f"PREDICTION RESPONED AT : {nowresponse} WITH {model_prediction} FOR REQUEST RECIEVED AT : {nowutc}")
 
         return {"isFraudulent" : model_prediction}
+
+
+    @app.post("/isFraudulentExplanation",response_model = PredictionOutExplanation)
+    def predict(payload : TransactionIn):
+
+        nowutc = time.strftime("%Y-%m-%d %H:%M:%SZ", time.gmtime())
+        log.info(f"PREDICTION and EXPLANATION REQUEST RECIEVED AT : {nowutc}")
+
+        log.info(f"Received payload: distance_from_home={payload.distance_from_home}, "
+         f"distance_from_last_transaction={payload.distance_from_last_transaction}, "
+         f"ratio_to_median_purchase_price={payload.ratio_to_median_purchase_price}, "
+         f"repeat_retailer={payload.repeat_retailer}, "
+         f"used_chip={payload.used_chip}, "
+         f"used_pin_number={payload.used_pin_number}, "
+         f"online_order={payload.online_order}")
+
+
+        explanation , model_prediction = get_prediction_and_explanation(distance_from_home=payload.distance_from_home,
+                            distance_from_last_transaction=payload.distance_from_last_transaction,
+                            ratio_to_median_purchase_price=payload.ratio_to_median_purchase_price,
+                            repeat_retailer=payload.repeat_retailer,
+                            used_chip=payload.used_chip,
+                            used_pin_number=payload.used_pin_number,
+                            online_order=payload.online_order)
+
+        nowresponse = time.strftime("%Y-%m-%d %H:%M:%SZ", time.gmtime())
+        
+        log.info(f"PREDICTION and EXPLANATION RESPONED AT : {nowresponse} WITH {model_prediction} FOR REQUEST RECIEVED AT : {nowutc}")
+
+        return {"isFraudulent" : model_prediction , "explanation" : explanation}
 
     @app.get("/featureImportance",response_model = FeatureImportance)
     def feature_importance():

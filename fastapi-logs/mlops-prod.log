@@ -54,3 +54,13 @@
 2024-06-22 03:17:49,484 - main - INFO - BATCH PREDICTION REQUEST RECIEVED AT : 2024-06-22 03:17:49Z WITH PAYLOAD instances=[TransactionIn(distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1), TransactionIn(distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1), TransactionIn(distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0)]
 2024-06-22 03:17:49,506 - main - INFO - BATCH PREDICTION RESPONDED AT : 2024-06-22 03:17:49Z FOR REQUEST RECEIVED AT : 2024-06-22 03:17:49Z WITH RESPONSE [True, True, False]
 2024-06-22 03:18:11,549 - main - INFO - APP SHUTDOWN AT : 2024-06-22 03:18:11Z
+2024-06-22 03:21:45,339 - main - INFO - APP STARTED AT : 2024-06-22 03:21:45Z
+2024-06-22 03:21:58,626 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 03:21:58Z
+2024-06-22 03:26:23,851 - main - INFO - APP SHUTDOWN AT : 2024-06-22 03:26:23Z
+2024-06-22 03:47:02,066 - main - INFO - APP STARTED AT : 2024-06-22 03:47:02Z
+2024-06-22 03:48:14,811 - main - INFO - PREDICTION and EXPLANATION REQUEST RECIEVED AT : 2024-06-22 03:48:14Z
+2024-06-22 03:48:14,812 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 03:48:14,840 - main - INFO - PREDICTION and EXPLANATION RESPONED AT : 2024-06-22 03:48:14Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 03:48:14Z
+2024-06-22 03:49:24,809 - main - INFO - PREDICTION and EXPLANATION REQUEST RECIEVED AT : 2024-06-22 03:49:24Z
+2024-06-22 03:49:24,812 - main - INFO - Received payload: distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1
+2024-06-22 03:49:24,840 - main - INFO - PREDICTION and EXPLANATION RESPONED AT : 2024-06-22 03:49:24Z WITH True FOR REQUEST RECIEVED AT : 2024-06-22 03:49:24Z
