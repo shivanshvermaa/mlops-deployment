@@ -117,6 +117,7 @@ mlops-deployment/
 3. **Access the FastAPI application:**
 
     Open your browser and navigate to `http://your-ec2-public-dns:80`
+   
     Open your browser and navigate to `http://your-ec2-public-dns/docs` to view the documentation
 
 ## Configuration
