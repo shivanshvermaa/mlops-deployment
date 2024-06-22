@@ -4,6 +4,7 @@ fastapi==0.111.0
 fqdn==1.5.1
 httptools==0.6.1
 isoduration==20.11.0
+shap==0.45.1
 jsonpointer==2.4
 kneed==0.8.5
 pip-chill==1.0.3

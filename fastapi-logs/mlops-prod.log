@@ -64,3 +64,36 @@
 2024-06-22 03:49:24,809 - main - INFO - PREDICTION and EXPLANATION REQUEST RECIEVED AT : 2024-06-22 03:49:24Z
 2024-06-22 03:49:24,812 - main - INFO - Received payload: distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1
 2024-06-22 03:49:24,840 - main - INFO - PREDICTION and EXPLANATION RESPONED AT : 2024-06-22 03:49:24Z WITH True FOR REQUEST RECIEVED AT : 2024-06-22 03:49:24Z
+2024-06-22 18:03:01,624 - main - INFO - APP STARTED AT : 2024-06-22 18:03:01Z
+2024-06-22 18:05:53,135 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 18:05:53Z
+2024-06-22 18:05:55,102 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 18:05:55Z
+2024-06-22 18:05:55,325 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 18:05:55Z
+2024-06-22 18:05:55,517 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 18:05:55Z
+2024-06-22 18:05:55,690 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 18:05:55Z
+2024-06-22 18:05:55,852 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 18:05:55Z
+2024-06-22 18:05:56,024 - main - INFO - HEALTH CHECKUP AT : 2024-06-22 18:05:56Z
+2024-06-22 18:06:07,266 - main - INFO - PREDICTION and EXPLANATION REQUEST RECIEVED AT : 2024-06-22 18:06:07Z
+2024-06-22 18:06:07,270 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:07,308 - main - INFO - PREDICTION and EXPLANATION RESPONED AT : 2024-06-22 18:06:07Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:07Z
+2024-06-22 18:06:39,094 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-22 18:06:39Z
+2024-06-22 18:06:39,095 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:39,098 - main - INFO - PREDICTION RESPONED AT : 2024-06-22 18:06:39Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:39Z
+2024-06-22 18:06:39,425 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-22 18:06:39Z
+2024-06-22 18:06:39,427 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:39,438 - main - INFO - PREDICTION RESPONED AT : 2024-06-22 18:06:39Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:39Z
+2024-06-22 18:06:40,081 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-22 18:06:40Z
+2024-06-22 18:06:40,084 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:40,091 - main - INFO - PREDICTION RESPONED AT : 2024-06-22 18:06:40Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:40Z
+2024-06-22 18:06:40,521 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-22 18:06:40Z
+2024-06-22 18:06:40,524 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:40,536 - main - INFO - PREDICTION RESPONED AT : 2024-06-22 18:06:40Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:40Z
+2024-06-22 18:06:41,070 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-22 18:06:41Z
+2024-06-22 18:06:41,071 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:41,081 - main - INFO - PREDICTION RESPONED AT : 2024-06-22 18:06:41Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:41Z
+2024-06-22 18:06:41,659 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-22 18:06:41Z
+2024-06-22 18:06:41,662 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:41,670 - main - INFO - PREDICTION RESPONED AT : 2024-06-22 18:06:41Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:41Z
+2024-06-22 18:06:42,244 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-22 18:06:42Z
+2024-06-22 18:06:42,245 - main - INFO - Received payload: distance_from_home=0.0, distance_from_last_transaction=0.0, ratio_to_median_purchase_price=0.0, repeat_retailer=0, used_chip=0, used_pin_number=0, online_order=0
+2024-06-22 18:06:42,250 - main - INFO - PREDICTION RESPONED AT : 2024-06-22 18:06:42Z WITH False FOR REQUEST RECIEVED AT : 2024-06-22 18:06:42Z
+2024-06-22 18:07:51,301 - main - INFO - APP SHUTDOWN AT : 2024-06-22 18:07:51Z
