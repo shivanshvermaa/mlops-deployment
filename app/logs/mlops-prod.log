@@ -1,0 +1,32 @@
+2024-06-08 03:57:23,789 - main - INFO - APP STARTED AT : 2024-06-08 03:57:23Z
+2024-06-08 03:58:03,910 - main - INFO - APP SHUTDOWN AT : 2024-06-08 03:58:03Z
+2024-06-08 03:58:10,980 - main - INFO - APP STARTED AT : 2024-06-08 03:58:10Z
+2024-06-08 03:58:18,749 - main - INFO - HEALTH CHECKUP AT : 2024-06-08 03:58:18Z
+2024-06-08 03:58:33,949 - main - INFO - APP SHUTDOWN AT : 2024-06-08 03:58:33Z
+2024-06-08 04:06:39,644 - main - INFO - APP STARTED AT : 2024-06-08 04:06:39Z
+2024-06-08 04:06:55,872 - main - INFO - HEALTH CHECKUP AT : 2024-06-08 04:06:55Z
+2024-06-08 04:07:41,509 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-08 04:07:41Z
+2024-06-08 04:07:41,512 - main - INFO - Received payload: distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1
+2024-06-08 04:07:41,532 - main - INFO - PREDICTION RESPONED AT : 2024-06-08 04:07:41Z WITH True FOR REQUEST RECIEVED AT : 2024-06-08 04:07:41Z
+2024-06-08 04:09:31,912 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-08 04:09:31Z
+2024-06-08 04:09:31,917 - main - INFO - Received payload: distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1
+2024-06-08 04:09:31,935 - main - INFO - PREDICTION RESPONED AT : 2024-06-08 04:09:31Z WITH True FOR REQUEST RECIEVED AT : 2024-06-08 04:09:31Z
+2024-06-08 04:10:51,412 - main - INFO - APP SHUTDOWN AT : 2024-06-08 04:10:51Z
+2024-06-08 04:29:42,392 - main - INFO - APP STARTED AT : 2024-06-08 04:29:42Z
+2024-06-08 04:29:59,431 - main - INFO - HEALTH CHECKUP AT : 2024-06-08 04:29:59Z
+2024-06-08 04:35:18,914 - main - INFO - APP SHUTDOWN AT : 2024-06-08 04:35:18Z
+2024-06-08 04:43:28,920 - main - INFO - APP STARTED AT : 2024-06-08 04:43:28Z
+2024-06-08 04:46:52,090 - main - INFO - APP SHUTDOWN AT : 2024-06-08 04:46:52Z
+2024-06-08 04:47:39,597 - main - INFO - APP STARTED AT : 2024-06-08 04:47:39Z
+2024-06-08 04:53:27,995 - main - INFO - APP SHUTDOWN AT : 2024-06-08 04:53:27Z
+2024-06-08 04:56:19,868 - main - INFO - APP STARTED AT : 2024-06-08 04:56:19Z
+2024-06-08 04:58:47,531 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-08 04:58:47Z
+2024-06-08 04:58:47,532 - main - INFO - Received payload: distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1
+2024-06-08 04:58:47,549 - main - INFO - PREDICTION RESPONED AT : 2024-06-08 04:58:47Z WITH True FOR REQUEST RECIEVED AT : 2024-06-08 04:58:47Z
+2024-06-08 04:58:47,858 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-08 04:58:47Z
+2024-06-08 04:58:47,860 - main - INFO - Received payload: distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1
+2024-06-08 04:58:47,865 - main - INFO - PREDICTION RESPONED AT : 2024-06-08 04:58:47Z WITH True FOR REQUEST RECIEVED AT : 2024-06-08 04:58:47Z
+2024-06-08 04:58:48,589 - main - INFO - PREDICTION REQUEST RECIEVED AT : 2024-06-08 04:58:48Z
+2024-06-08 04:58:48,592 - main - INFO - Received payload: distance_from_home=2.131956, distance_from_last_transaction=56.372401, ratio_to_median_purchase_price=6.358667, repeat_retailer=1, used_chip=0, used_pin_number=0, online_order=1
+2024-06-08 04:58:48,596 - main - INFO - PREDICTION RESPONED AT : 2024-06-08 04:58:48Z WITH True FOR REQUEST RECIEVED AT : 2024-06-08 04:58:48Z
+2024-06-08 05:02:04,378 - main - INFO - APP SHUTDOWN AT : 2024-06-08 05:02:04Z

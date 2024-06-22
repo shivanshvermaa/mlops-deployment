@@ -44,3 +44,9 @@ def get_model_prediction(distance_from_home:float=0,
     sample_df = pd.DataFrame(x_values_dictionary)
         
     return bool(loaded_model.predict(sample_df)[0])
+
+
+def get_feature_importance():
+    booster = loaded_model.get_booster()
+    feature_importance = booster.get_score(importance_type='gain')
+    return feature_importance
