@@ -67,6 +67,17 @@ mlops-deployment/
 6. **Configure instance details, add storage, and add tags if needed.**
 7. **Configure the security group to allow HTTP (port 80), HTTPS (port 443), and SSH (port 22) access.**
 8. **Review and launch the instance.**
+   
+## Configuration
+
+The application uses environment variables for configuration. You can set these variables in a `.env` file or directly in your environment. Example `.env` file:
+
+```
+AWS_S3_OBJECT_NAME=<OBJECT_NAME>
+AWS_S3_BUCKET_NAME=<BUCKET_NAME>
+AWS_SECRET_KEY=<SECRET_KEY>
+AWS_ACCESS_KEY_ID=<ACCESS_KEY>
+```
 
 ### Step 2: Connect to the EC2 Instance
 
@@ -126,13 +137,3 @@ mlops-deployment/
    
     Open your browser and navigate to `http://your-ec2-public-dns/docs` to see the documentation
 
-## Configuration
-
-The application uses environment variables for configuration. You can set these variables in a `.env` file or directly in your environment. Example `.env` file:
-
-```
-AWS_S3_OBJECT_NAME=<OBJECT_NAME>
-AWS_S3_BUCKET_NAME=<BUCKET_NAME>
-AWS_SECRET_KEY=<SECRET_KEY>
-AWS_ACCESS_KEY_ID=<ACCESS_KEY>
-```
