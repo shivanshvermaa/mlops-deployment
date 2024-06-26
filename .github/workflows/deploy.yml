@@ -71,7 +71,7 @@ jobs:
             echo "Repository cloned successfully."
 
             # Navigate into the repository directory
-            cd /home/ubuntu/mlops-deployment
+            cd /home/ubuntu/mlops-deployment-pipe
             echo "Navigated into the mlops-deployment-pipe directory."
 
             # Output the content of .env to verify
@@ -79,6 +79,5 @@ jobs:
             echo "Verification completed. Setup script finished."
 
             # Start Docker Compose
-            echo "Starting the docker compose"
             sudo docker compose up -d --build
           EOF

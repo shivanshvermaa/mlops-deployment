@@ -1,83 +1,45 @@
-name: Deploy to EC2
+version: '2.0'
 
-on:
-  push:
-    branches:
-      - main
+services:
+  mlops_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mlops-prod
+    container_name: mlops-prod-container
+    ports:
+      - "80:80"  # Maps port 80 on the host to port 80 in the container
+    env_file:
+    - ../.env
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ./app:/app  # Adjust volume mapping as needed
+      - ./fastapi-logs:/app/logs
+    command: uvicorn main:app --host 0.0.0.0 --port 80  # Command to run the FastAPI app
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.15.0
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
 
-      - name: Set up PEM file
-        run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > ec2_key.pem
-          chmod 600 ec2_key.pem
+  filebeat:
+    build:
+        context: ./filebeat
+    container_name: filebeat
+    volumes:
+        - ./fastapi-logs:/app/logs
+    depends_on:
+        - elasticsearch
+        - kibana
+    
 
-      - name: Create .env file
-        env:
-          AWS_S3_OBJECT_NAME: ${{ secrets.AWS_S3_OBJECT_NAME }}
-          AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
-          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        run: |
-          echo "AWS_S3_OBJECT_NAME=${AWS_S3_OBJECT_NAME}" > .env
-          echo "AWS_S3_BUCKET_NAME=${AWS_S3_BUCKET_NAME}" >> .env
-          echo "AWS_SECRET_KEY=${AWS_SECRET_KEY}" >> .env
-          echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> .env
-          cat .env
-
-      - name: Copy .env file to EC2
-        env:
-          EC2_USER: ubuntu
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-        run: |
-          scp -i ec2_key.pem -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/home/ubuntu/.env
-
-      - name: Deploy on EC2
-        env:
-          EC2_USER: ubuntu
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-        run: |
-          ssh -i ec2_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << EOF
-            #!/bin/bash
-            sudo su
-
-            # Install Docker
-            cd /home/ubuntu
-            echo "Downloading Docker installation script..."
-            curl -fsSL https://get.docker.com -o get-docker.sh
-            echo "Running Docker installation script..."
-            sh get-docker.sh
-            echo "Docker installation completed."
-
-            # Install Docker Compose
-            echo "Downloading Docker Compose..."
-            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            echo "Setting executable permissions for Docker Compose..."
-            sudo chmod +x /usr/local/bin/docker-compose
-            echo "Docker Compose installation completed."
-            sudo docker system prune -f
-
-            # Clone the repository
-            cd /home/ubuntu
-            rm -rf /home/ubuntu/mlops-deployment
-            echo "Cloning the mlops-deployment-pipe repository..."
-            git clone https://github.com/shivanshvermaa/mlops-deployment.git
-            echo "Repository cloned successfully."
-
-            # Navigate into the repository directory
-            cd /home/ubuntu/mlops-deployment
-            echo "Navigated into the mlops-deployment directory."
-
-            # Output the content of .env to verify
-            echo "Verifying the content of the .env file..."
-            echo "Verification completed. Setup script finished."
-
-            # Start Docker Compose  
-            sudo docker compose up -d --build
-          EOF
