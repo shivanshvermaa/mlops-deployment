@@ -99,17 +99,10 @@ AWS_ACCESS_KEY_ID=<ACCESS_KEY>
 2. **Install Docker:**
 
     ```bash
-    sudo apt-get install -y docker.io
+    curl -fsSL https://get.docker.com -o get-docker.sh
     ```
 
-3. **Start Docker and enable it to start on boot:**
-
-    ```bash
-    sudo systemctl start docker
-    sudo systemctl enable docker
-    ```
-
-4. **Install Docker Compose:**
+3. **Install Docker Compose:**
 
     ```bash
     sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -124,14 +117,21 @@ AWS_ACCESS_KEY_ID=<ACCESS_KEY>
     git clone https://github.com/shivanshvermaa/mlops-deployment.git
     cd mlops-deployment
     ```
+2. **Create the .env file**
+   ```
+    AWS_S3_OBJECT_NAME=<OBJECT_NAME>
+    AWS_S3_BUCKET_NAME=<BUCKET_NAME>
+    AWS_SECRET_KEY=<SECRET_KEY>
+    AWS_ACCESS_KEY_ID=<ACCESS_KEY>
+    ```
 
-2. **Build and run Docker containers:**
+4. **Build and run Docker containers:**
 
     ```bash
     sudo docker-compose up --build -d
     ```
 
-3. **Access the FastAPI application:**
+5. **Access the FastAPI application:**
 
     Open your browser and navigate to `http://your-ec2-public-dns:80` to see the health status
    
