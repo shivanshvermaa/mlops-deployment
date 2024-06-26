@@ -79,5 +79,6 @@ jobs:
             echo "Verification completed. Setup script finished."
 
             # Start Docker Compose
+            echo "Starting the docker compose"
             sudo docker compose up -d --build
           EOF
