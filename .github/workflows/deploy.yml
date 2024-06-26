@@ -65,19 +65,19 @@ jobs:
 
             # Clone the repository
             cd /home/ubuntu
-            rm -rf /home/ubuntu/mlops-deployment-pipe
+            rm -rf /home/ubuntu/mlops-deployment
             echo "Cloning the mlops-deployment-pipe repository..."
-            git clone https://github.com/shivanshvermaa/mlops-deployment-pipe.git
+            git clone https://github.com/shivanshvermaa/mlops-deployment.git
             echo "Repository cloned successfully."
 
             # Navigate into the repository directory
-            cd /home/ubuntu/mlops-deployment-pipe
-            echo "Navigated into the mlops-deployment-pipe directory."
+            cd /home/ubuntu/mlops-deployment
+            echo "Navigated into the mlops-deployment directory."
 
             # Output the content of .env to verify
             echo "Verifying the content of the .env file..."
             echo "Verification completed. Setup script finished."
 
-            # Start Docker Compose
+            # Start Docker Compose  
             sudo docker compose up -d --build
           EOF
