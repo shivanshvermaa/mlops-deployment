@@ -72,12 +72,12 @@ jobs:
 
             # Navigate into the repository directory
             cd /home/ubuntu/mlops-deployment
-            echo "Navigated into the mlops-deployment directory."
+            echo "Navigated into the mlops-deployment-pipe directory."
 
             # Output the content of .env to verify
             echo "Verifying the content of the .env file..."
             echo "Verification completed. Setup script finished."
 
-            # Start Docker Compose  
+            # Start Docker Compose
             sudo docker compose up -d --build
           EOF
