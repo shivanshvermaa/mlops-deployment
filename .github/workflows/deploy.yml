@@ -71,7 +71,7 @@ jobs:
             echo "Repository cloned successfully."
 
             # Navigate into the repository directory
-            cd /home/ubuntu/mlops-deployment-pipe
+            cd /home/ubuntu/mlops-deployment
             echo "Navigated into the mlops-deployment-pipe directory."
 
             # Output the content of .env to verify
