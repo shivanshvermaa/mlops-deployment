@@ -1,7 +1,9 @@
 # MLOps Deployment
 
 This repository contains the setup and configuration files for deploying an MLOps pipeline using FastAPI and Docker on AWS EC2.
-Each instance is running the ELK stack as well.
+Each instance is running the ELK stack as well. We have implemented CI-CD using Git Actions that get triggered whenever code is pushed on the main branch. The complicated CI-CD workflow orchrestration is outlined in the GitHub workflows folder. Incase of any issues please let us know as the deployment in AWS revolves a multi step process in multiple services from configuring the Security Groups on the VPC to allow traffic to setting up the Scaling rules in ASG. 
+
+The below explanation is deployment of the services on AWS.
 
 ## Project Structure
 
@@ -28,7 +30,9 @@ mlops-deployment/
 - Docker
 - Python 3.8+
 
-## Setup
+## Setup Locally
+
+Presuming you have Docker installed.
 
 1. **Clone the repository:**
 
@@ -36,16 +40,8 @@ mlops-deployment/
     git clone https://github.com/shivanshvermaa/mlops-deployment.git
     cd mlops-deployment
     ```
-
-2. **Install dependencies:**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Running Locally
-
-1. **Build and run Docker containers:**
+    
+2. **Build and run Docker containers:**
 
     ```bash
     docker-compose up --build
@@ -53,7 +49,9 @@ mlops-deployment/
 
 2. **Access the FastAPI application:**
 
-    Open your browser and navigate to `http://localhost:8000`
+    Open your browser and navigate to `http://localhost:80` to see if the API is working and
+
+   Navigate to `http://localhost/docs` to see the documentation for the hosted API.
 
 ## Deployment to AWS EC2
 
@@ -117,7 +115,7 @@ AWS_ACCESS_KEY_ID=<ACCESS_KEY>
     git clone https://github.com/shivanshvermaa/mlops-deployment.git
     cd mlops-deployment
     ```
-2. **Create the .env file**
+2. **Create the .env file just outside the `mlops-development` folder **
    ```
     AWS_S3_OBJECT_NAME=<OBJECT_NAME>
     AWS_S3_BUCKET_NAME=<BUCKET_NAME>
