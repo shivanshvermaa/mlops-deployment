@@ -23,6 +23,10 @@ mlops-deployment/
 ├── heroku.yml
 └── requirements.txt
 ```
+## System Design for the Application
+
+![System Design](https://github.com/shivanshvermaa/mlops-deployment/assets/37590846/da67c37d-cfb7-43fa-aebe-5ac1ac7d5167)
+
 
 ## Prerequisites
 
