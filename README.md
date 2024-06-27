@@ -25,7 +25,7 @@ mlops-deployment/
 ```
 ## System Design for the Application
 
-![System Design](https://github.com/shivanshvermaa/mlops-deployment/assets/37590846/da67c37d-cfb7-43fa-aebe-5ac1ac7d5167)
+![System Design](https://github.com/shivanshvermaa/mlops-deployment/assets/37590846/431dfdc7-9d44-4fcc-96c4-9049e38c3c3e)
 
 
 ## Prerequisites
