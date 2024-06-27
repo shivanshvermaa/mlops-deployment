@@ -79,18 +79,6 @@ def init_app():
         log.info(f"HEALTH CHECKUP AT : {nowutc}")
         return {"health_check": "OK", "model_version": __model_version__}
 
-    @app.get("/sample")
-    def home():
-        nowutc = time.strftime("%Y-%m-%d %H:%M:%SZ", time.gmtime())
-        log.info(f"Pipeline check AT : {nowutc}")
-        return {"health_check": "OK", "model_version": __model_version__ , "sample_code" : "sample_code"}
-
-    @app.get("/cicd")
-    def home():
-        nowutc = time.strftime("%Y-%m-%d %H:%M:%SZ", time.gmtime())
-        log.info(f"Pipeline check AT : {nowutc}")
-        return {"health_check": "OK", "model_version": __model_version__ , "sample_code" : "sample_code"}
-
     @app.post("/isFraudulent",response_model = PredictionOut)
     def predict(payload : TransactionIn):
 
